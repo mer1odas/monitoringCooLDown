@@ -13,7 +13,7 @@ RUN npm install
 RUN npm install --production
 RUN npm i @vue/cli-service
 
-COPY . .
+COPY dist ./
 RUN ls
 
 RUN npm run build

@@ -15,11 +15,8 @@ COPY . .
 # Собираем приложение
 RUN npm run build
 
-# Устанавливаем сервер для обслуживания статических файлов
-RUN npm install -g serve
-
 # Открываем порт 5000
-EXPOSE 5000
+EXPOSE 4174
 
 # Команда для запуска приложения
-CMD ["serve", "-s", "dist"]
+RUN npm run preview

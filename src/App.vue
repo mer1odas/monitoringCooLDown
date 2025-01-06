@@ -9,6 +9,7 @@
   <div class="flex">
     <account v-for="(acc, index) in accounts" :key="index" :account="acc" @take-kit="takeKits" @delete-account="deleteAcc"/>
   </div>
+  <div>GDHUKJSJHKGJHKSGDFHJKGFDJHK</div>
 </div>
 </template>
 

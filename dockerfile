@@ -1,25 +1,22 @@
-FROM node:16
+FROM node:lts-alpine
 
-# Устанавливаем рабочую директорию
+# install simple http server for serving static content
+RUN npm install -g http-server
+
+# make the 'app' folder the current working directory
 WORKDIR /app
 
-# Копируем все файлы
-COPY . .
-RUN ls
-# Устанавливаем зависимости
+# copy both 'package.json' and 'package-lock.json' (if available)
+COPY package*.json ./
+
+# install project dependencies
 RUN npm install
 
-# Собираем приложение
-RUN npm install --production
-RUN npm i @vue/cli-service
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY . .
 
-COPY dist ./
-RUN ls
-
+# build app for production with minification
 RUN npm run build
 
-# Открываем порт 5000
-EXPOSE 4174
-
-# Команда для запуска приложения
-RUN npm run preview
+EXPOSE 8080
+CMD [ "http-server", "dist" ]

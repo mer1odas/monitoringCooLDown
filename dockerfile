@@ -3,16 +3,15 @@ FROM node:16
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package*.json ./
+# Копируем все файлы
+COPY . .
 
 # Устанавливаем зависимости
 RUN npm install
 
-# Копируем все файлы приложения
-COPY . .
-
 # Собираем приложение
+RUN npm install --production
+RUN install @vue/cli-service
 RUN npm run build
 
 # Открываем порт 5000

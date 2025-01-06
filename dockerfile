@@ -11,7 +11,7 @@ RUN npm install
 
 # Собираем приложение
 RUN npm install --production
-RUN install @vue/cli-service
+RUN npm i @vue/cli-service
 RUN npm run build
 
 # Открываем порт 5000

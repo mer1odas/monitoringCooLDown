@@ -14,7 +14,7 @@ RUN npm install --production
 RUN npm i @vue/cli-service
 
 # Открываем порт 5000
-EXPOSE 4174
+EXPOSE 5173
 
 # Команда для запуска приложения
-RUN npm run preview
+RUN npm run dev

@@ -1,11 +1,10 @@
-version: '3.8'
+version: '3'
 
 services:
-  vue-app:
+  vuejs-app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:4174"
-    environment:
-      - NODE_ENV=production
+      - "8080:80"
+    container_name: dockerize-vuejs-app-1
